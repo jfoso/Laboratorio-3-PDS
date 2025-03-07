@@ -1,6 +1,6 @@
 # Laboratorio-3-PDS
 ## OBJETIVO
-Este laboratorio tiene como objetivo analizar,capturar, procesar y separar las señales de audio provenientes de múltiples fuentes en un entorno simulado, utilizando técnicas de análisis temporal y espectral, así como métodos de separación de fuentes como el Análisis de Componentes Independientes (ICA) o Beamforming, para aislar y evaluar la calidad de una señal de voz específica.
+Este laboratorio tiene como objetivo analizar,capturar, procesar y separar las 3 señales de audio provenientes de tres grabaciones en un entorno simulado, utilizando técnicas de análisis temporal y espectral, así como métodos de separación de fuentes como el Análisis de Componentes Independientes (ICA) o Beamforming, para aislar y evaluar la calidad de una señal de voz específica.
 ## Procedimiento
 El presente laboratorio se divide en tres secciones principales, la configuracion del sistema, captura de la señal y procesamiento de las señales captudaradas.Cado proceso será explicado a fondo a continuación:
 ### Configuración del sistema 
