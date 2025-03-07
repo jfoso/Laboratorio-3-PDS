@@ -9,4 +9,5 @@ Para capturar las señales sonoras se utilizaron tres microfonos distribuidos es
 Como especifica la imagen las fuentes son las x respectivamente donde la fuente A es saniago, la fuente B es felipe y la fuente c es karol ubicados a diferentes distancias para simular de forma correcta la fiesta de cóctel.
 ### Captura de la señal 
 para capturar las señales las tres fuentes naturales generan la señal mediante la voces de las mismas en este caso al momento de capturar la señal se esperan 5 segundos para capturar el ruido de la habitación, posterior a esto cada uno empezo a emitir las señales para registrarlas en los micrófonos para ser guardadas y procesadas cabe resaltar que cada una de ellas fue capturada a una frecuencia de 44.100Hz posterior a esto se calcula el SNR de la siguiente manera:
-### 
+### Procesamiento de señales
+Para analizar correctamente las señales se realiza un análisis temporal y espectral de las señales capturadas por cada micrófono respectivamente con la intención de identificar las características principales de cada fuente, estos fueron realizados de la siguiente manera:
