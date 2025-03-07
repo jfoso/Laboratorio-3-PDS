@@ -151,8 +151,66 @@ Posterior a esto se investigaron los diversos metódos de separación de fuentes
 * Pueden ser efectivos cuando se dispone de información previa sobre las fuentes.\
 
 En este caso se realizo el metódo de separación de fuentes beamforming de la siguiente manera:
+```ruby
+def beamforming(signals, delay):
+    num_mics = signals.shape[1]
+    beamformed_signal = np.zeros(len(signals))
+    for i, delay_i in enumerate(delay):
+        beamformed_signal += np.roll(signals[:, i], delay_i)
+    return beamformed_signal / num_mics
+```
+Implementa el algoritmo de Beamforming básico.
+* signals: Matriz de señales de los micrófonos (cada columna es una señal).
+* La función itera sobre las señales, aplica el retraso correspondiente usando np.roll, y suma las señales retrasadas.
+* Al final, divide la suma por el número de micrófonos para obtener la señal Beamformed.
+**Carga y Preparación de las Señales de Audio:**
+```ruby
+# Asegurar que ambas señales tengan la misma longitud
+audio1 = r"C:\\Users\\sachi\\OneDrive - unimilitar.edu.co\\Sexto semestre\\Lab señales\\Lab 3\\audioc.wav"
+audio2 = r"C:\\Users\\sachi\\OneDrive - unimilitar.edu.co\\Sexto semestre\\Lab señales\\Lab 3\\audiof.wav"
+audio3 = r"C:\\Users\\sachi\\OneDrive - unimilitar.edu.co\\Sexto semestre\\Lab señales\\Lab 3\\audios.wav"
+sr1 = 44100
+longitud_max = max(len(audio1), len(audio2), len(audio3))
+audio1 = np.pad(audio1, (0, longitud_max - len(audio1)))
+sample_rate, audio1 = wav.read("C:\\Users\\sachi\\OneDrive - unimilitar.edu.co\\Sexto semestre\\Lab señales\\Lab 3\\audioc.wav")
+audio1 = audio1.astype(np.float64)
+audio2 = np.pad(audio2, (0, longitud_max - len(audio2)))
+sample_rate, audio2 = wav.read("C:\\Users\\sachi\\OneDrive - unimilitar.edu.co\\Sexto semestre\\Lab señales\\Lab 3\\audiof.wav")
+audio2 = audio2.astype(np.float64)
+audio3 = np.pad(audio3, (0, longitud_max - len(audio3)))
+sample_rate, audio3 = wav.read("C:\\Users\\sachi\\OneDrive - unimilitar.edu.co\\Sexto semestre\\Lab señales\\Lab 3\\audios.wav")
+audio3 = audio3.astype(np.float64)
+audio_mix = np.vstack((audio1, audio2, audio3)).T
+```
+* Se asegura que todas las señales tengan la misma longitud usando np.pad().
+* Se crea una matriz audio_mix donde cada columna representa una señal de micrófono.
+**Carga y Preparación de las Señales de Ruido:**
+```ruby
+ruido1 = r"C:\\Users\\sachi\\OneDrive - unimilitar.edu.co\\Sexto semestre\\Lab señales\\Lab 3\\ruidoc.wav"
+ruido2 = r"C:\\Users\\sachi\\OneDrive - unimilitar.edu.co\\Sexto semestre\\Lab señales\\Lab 3\\ruidof.wav"
+ruido3 = r"C:\\Users\\sachi\\OneDrive - unimilitar.edu.co\\Sexto semestre\\Lab señales\\Lab 3\\ruidos.wav"
 
+sample_rate, ruido1 = wav.read("C:\\Users\\sachi\\OneDrive - unimilitar.edu.co\\Sexto semestre\\Lab señales\\Lab 3\\ruidoc.wav")
+sample_rate, ruido2 = wav.read("C:\\Users\\sachi\\OneDrive - unimilitar.edu.co\\Sexto semestre\\Lab señales\\Lab 3\\ruidof.wav")
+sample_rate, ruido3 = wav.read("C:\\Users\\sachi\\OneDrive - unimilitar.edu.co\\Sexto semestre\\Lab señales\\Lab 3\\ruidos.wav")
 
+max_length = max(ruido1.shape[0], ruido2.shape[0], ruido3.shape[0])
 
-  
+ruido1 = np.pad(ruido1, ((0, max_length - ruido1.shape[0]), (0, 0)), mode='constant')
+ruido2 = np.pad(ruido2, ((0, max_length - ruido2.shape[0]), (0, 0)), mode='constant')
+ruido3 = np.pad(ruido3, ((0, max_length - ruido3.shape[0]), (0, 0)), mode='constant')
 
+señal_suma = ruido1 + ruido2 + ruido3
+```
+* Se cargan los archivos de ruido.
+* Se asegura que todas las señales de ruido tengan la misma longitud.
+* Se suman las señales de ruido para obtener una señal de ruido combinada.
+**Cálculo del SNR Final:**
+```ruby
+pseñal = np.mean(beamformed_signal[:max_length] ** 2)
+pruido = np.mean(señal_suma ** 2)
+snrf = 10 * np.log10(pseñal / pruido)
+print(Fore.BLUE + f"SNR FINAL después de Beamforming:",snrf," dB")
+```
+* Se calcula la potencia de la señal Beamformed y la potencia del ruido combinado y el SNR en db.
+## Resultados
