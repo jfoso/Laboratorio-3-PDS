@@ -137,18 +137,21 @@ Posterior a esto se investigaron los diversos metódos de separación de fuentes
 **1. Análisis de Componentes Independientes (ICA):**
 * Es una técnica estadística que busca separar una señal multivariante en componentes estadísticamente independientes.
 * Trabaja con la premisa de que las señales de los micrófonos son combinaciones lineales de las fuentes originales. Su objetivo es "desmezclar" estas combinaciones para recuperar las señales fuente.
-* ICA es efectivo cuando las fuentes son estadísticamente independientes, lo cual suele ser una aproximación razonable para las voces humanas.
+* ICA es efectivo cuando las fuentes son estadísticamente independientes, lo cual suele ser una aproximación razonable para las voces humanas.\
 **2. Beamforming (Formación de haces):**
 * Beamforming es una técnica que utiliza arreglos de micrófonos para enfocar la sensibilidad en una dirección específica y suprimir el sonido de otras direcciones.
 * Funciona manipulando las fases y amplitudes de las señales de los micrófonos para crear un "haz" de sensibilidad direccional.
 * Beamforming es efectivo cuando se conoce la ubicación de la fuente de interés.
-* Puede mejorar significativamente la relación señal/ruido (SNR) en la dirección de interés.
+* Puede mejorar significativamente la relación señal/ruido (SNR) en la dirección de interés.\
 **3. Filtrado adaptativo:**
 * Estos filtros ajustan sus características en tiempo real para eliminar el ruido o interferencias.
-* Pueden ser útiles para cancelar el ruido de fondo o las interferencias de otras fuentes.
+* Pueden ser útiles para cancelar el ruido de fondo o las interferencias de otras fuentes.\
 **4. Separación de fuentes basada en modelos:**
 * Estos métodos utilizan modelos estadísticos o acústicos de las fuentes y el entorno para separar las señales.
-* Pueden ser efectivos cuando se dispone de información previa sobre las fuentes.
+* Pueden ser efectivos cuando se dispone de información previa sobre las fuentes.\
+
+En este caso se realizo el metódo de separación de fuentes beamforming de la siguiente manera:
+
 
 
   
