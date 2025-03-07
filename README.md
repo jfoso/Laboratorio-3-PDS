@@ -214,3 +214,4 @@ print(Fore.BLUE + f"SNR FINAL después de Beamforming:",snrf," dB")
 ```
 * Se calcula la potencia de la señal Beamformed y la potencia del ruido combinado y el SNR en db.
 ## Resultados
+Los SNR de las dos últimas señales son aceptables ya que son mayores a 10db, sin embargo, el de la primera está entre 0 y 10db, lo cual indica que la calidad de la señal era más baja con respecto a las otras. Esto puede darse porque había más ruido en esta señal que en las otras dos, que la calidad del micrófono sea baja o que la fuente de sonido más cercana haya estado demasiado lejos. Para la parte de la separación de fuentes, el SNR del beamforming pudo ser indefinido ya que los ruidos eran demasiado bajos y se detectaban como nulos, entonces no podía haber comparación entre la señal y sus ruidos. También puede darse el caso de que el ruido sea tan alto que la señal no pueda ser tenido en cuenta.
