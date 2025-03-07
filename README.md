@@ -123,8 +123,33 @@ Se utilizó la función analizar_audio(audio_path) que se encarga de:
 * Convierte a mono si es estéreo.
 * Calcula la duración y el vector de tiempo.
 * **Análisis temporal:** Crea una gráfica de la amplitud de la señal en función del tiempo.
+![WhatsApp Image 2025-03-06 at 8 40 38 PM](https://github.com/user-attachments/assets/cf6b7dc1-3f07-4b1b-8abb-4022cb0c6d55)
+![WhatsApp Image 2025-03-06 at 8 39 39 PM](https://github.com/user-attachments/assets/7bce8075-0cc4-4cb4-9ea2-254f88580ba4)
+![WhatsApp Image 2025-03-06 at 8 38 59 PM](https://github.com/user-attachments/assets/7ff56e22-abd5-4350-894a-c976fdadcbf8)
 * **Análisis espectral (FFT):**
 * Se calcula la transformada rápida de fourier de la señal usando fft().
 * Calcula las frecuencias correspondientes usando fftfreq().
 * Crea una gráfica de la magnitud del espectro de frecuencia (solo la parte positiva) obteniendo los siguientes resultados:
+![WhatsApp Image 2025-03-06 at 8 39 17 PM](https://github.com/user-attachments/assets/7652a2b9-3004-43e7-8901-b5b27dab57b6)
+![WhatsApp Image 2025-03-06 at 8 40 10 PM](https://github.com/user-attachments/assets/20dfcb10-b6a4-4a7c-b841-ffd529a52415)
+![WhatsApp Image 2025-03-06 at 8 40 57 PM](https://github.com/user-attachments/assets/b97c0946-4dc1-46de-b1bc-270b265d1937)
+Posterior a esto se investigaron los diversos metódos de separación de fuentes donde se tuvieron en cuenta los siguientes:\
+**1. Análisis de Componentes Independientes (ICA):**
+* Es una técnica estadística que busca separar una señal multivariante en componentes estadísticamente independientes.
+* Trabaja con la premisa de que las señales de los micrófonos son combinaciones lineales de las fuentes originales. Su objetivo es "desmezclar" estas combinaciones para recuperar las señales fuente.
+* ICA es efectivo cuando las fuentes son estadísticamente independientes, lo cual suele ser una aproximación razonable para las voces humanas.
+**2. Beamforming (Formación de haces):**
+* Beamforming es una técnica que utiliza arreglos de micrófonos para enfocar la sensibilidad en una dirección específica y suprimir el sonido de otras direcciones.
+* Funciona manipulando las fases y amplitudes de las señales de los micrófonos para crear un "haz" de sensibilidad direccional.
+* Beamforming es efectivo cuando se conoce la ubicación de la fuente de interés.
+* Puede mejorar significativamente la relación señal/ruido (SNR) en la dirección de interés.
+**3. Filtrado adaptativo:**
+* Estos filtros ajustan sus características en tiempo real para eliminar el ruido o interferencias.
+* Pueden ser útiles para cancelar el ruido de fondo o las interferencias de otras fuentes.
+**4. Separación de fuentes basada en modelos:**
+* Estos métodos utilizan modelos estadísticos o acústicos de las fuentes y el entorno para separar las señales.
+* Pueden ser efectivos cuando se dispone de información previa sobre las fuentes.
+
+
+  
 
