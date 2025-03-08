@@ -176,7 +176,8 @@ sample_rate, audio1 = wav.read("C:\\Users\\sachi\\OneDrive - unimilitar.edu.co\\
 audio2 = np.pad(audio2, (0, longitud_max - len(audio2)))
 sample_rate, audio2 = wav.read("C:\\Users\\sachi\\OneDrive - unimilitar.edu.co\\Sexto semestre\\Lab señales\\Lab 3\\saudiof.wav")
 audio3 = np.pad(audio3, (0, longitud_max - len(audio3)))
-sample_rate, audio3 = wav.read("C:\\Users\\sachi\\On
+sample_rate, audio3 = wav.read("C:\\Users\\sachi\\OneDrive - unimilitar.edu.co\\Sexto semestre\\Lab señales\\Lab 3\\saudios.wav")
+audio_mix = np.vstack((audio1, audio2, audio3)).T
 ```
 * Se asegura que todas las señales tengan la misma longitud usando np.pad().
 * Se crea una matriz audio_mix donde cada columna representa una señal de micrófono.
