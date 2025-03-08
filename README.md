@@ -204,10 +204,13 @@ señal_suma = ruido1 + ruido2 + ruido3
 * Se suman las señales de ruido para obtener una señal de ruido combinada.
 **Cálculo del SNR Final:**
 ```ruby
+# Calcular SNR final
 pseñal = np.mean(beamformed_signal[:max_length] ** 2)
 pruido = np.mean(señal_suma ** 2)
+print(pseñal)
+print(pruido)
 snrf = 10 * np.log10(pseñal / pruido)
-print(Fore.BLUE + f"SNR FINAL después de Beamforming:",snrf," dB")
+print("SNR FINAL después de Beamforming:",snrf," dB")
 ```
 * Se calcula la potencia de la señal Beamformed y la potencia del ruido combinado y el SNR en db.
 * En este caso, el SNR del la señal resultante fue indefinido
