@@ -166,21 +166,17 @@ Implementa el algoritmo de Beamforming básico.
 **Carga y Preparación de las Señales de Audio:**
 ```ruby
 # Asegurar que ambas señales tengan la misma longitud
-audio1 = r"C:\\Users\\sachi\\OneDrive - unimilitar.edu.co\\Sexto semestre\\Lab señales\\Lab 3\\audioc.wav"
-audio2 = r"C:\\Users\\sachi\\OneDrive - unimilitar.edu.co\\Sexto semestre\\Lab señales\\Lab 3\\audiof.wav"
-audio3 = r"C:\\Users\\sachi\\OneDrive - unimilitar.edu.co\\Sexto semestre\\Lab señales\\Lab 3\\audios.wav"
+audio1 = r"C:\\Users\\sachi\\OneDrive - unimilitar.edu.co\\Sexto semestre\\Lab señales\\Lab 3\\saudioc.wav"
+audio2 = r"C:\\Users\\sachi\\OneDrive - unimilitar.edu.co\\Sexto semestre\\Lab señales\\Lab 3\\saudiof.wav"
+audio3 = r"C:\\Users\\sachi\\OneDrive - unimilitar.edu.co\\Sexto semestre\\Lab señales\\Lab 3\\saudios.wav"
 sr1 = 44100
 longitud_max = max(len(audio1), len(audio2), len(audio3))
 audio1 = np.pad(audio1, (0, longitud_max - len(audio1)))
-sample_rate, audio1 = wav.read("C:\\Users\\sachi\\OneDrive - unimilitar.edu.co\\Sexto semestre\\Lab señales\\Lab 3\\audioc.wav")
-audio1 = audio1.astype(np.float64)
+sample_rate, audio1 = wav.read("C:\\Users\\sachi\\OneDrive - unimilitar.edu.co\\Sexto semestre\\Lab señales\\Lab 3\\saudioc.wav")
 audio2 = np.pad(audio2, (0, longitud_max - len(audio2)))
-sample_rate, audio2 = wav.read("C:\\Users\\sachi\\OneDrive - unimilitar.edu.co\\Sexto semestre\\Lab señales\\Lab 3\\audiof.wav")
-audio2 = audio2.astype(np.float64)
+sample_rate, audio2 = wav.read("C:\\Users\\sachi\\OneDrive - unimilitar.edu.co\\Sexto semestre\\Lab señales\\Lab 3\\saudiof.wav")
 audio3 = np.pad(audio3, (0, longitud_max - len(audio3)))
-sample_rate, audio3 = wav.read("C:\\Users\\sachi\\OneDrive - unimilitar.edu.co\\Sexto semestre\\Lab señales\\Lab 3\\audios.wav")
-audio3 = audio3.astype(np.float64)
-audio_mix = np.vstack((audio1, audio2, audio3)).T
+sample_rate, audio3 = wav.read("C:\\Users\\sachi\\On
 ```
 * Se asegura que todas las señales tengan la misma longitud usando np.pad().
 * Se crea una matriz audio_mix donde cada columna representa una señal de micrófono.
